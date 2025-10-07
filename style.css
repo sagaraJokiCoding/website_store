@@ -1,0 +1,73 @@
+/* Global Reset and Variables */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --accent-color: #00ADB5; /* Cyan-Teal Accent */
+    --dark-bg: #131E2A; /* Deep Navy Blue */
+    --light-bg: #1A2735;
+    --text-color: #EFEFEF;
+    --font-header: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    overflow-x: hidden;
+    transition: background-color 0.3s;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-header);
+    color: var(--text-color);
+}
+
+/* Design Theme Styles */
+.accent-text {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.design-card {
+    border: 1px solid rgba(0, 173, 181, 0.3);
+    background-color: var(--light-bg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.design-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 173, 181, 0.2);
+    transform: translateY(-5px);
+}
+
+.design-btn {
+    transition: all 0.3s ease-in-out;
+}
+
+.design-btn:hover {
+    box-shadow: 0 0 10px var(--accent-color);
+    transform: scale(1.02);
+}
+
+/* Custom scrollbar for portfolio slider */
+.portfolio-slider::-webkit-scrollbar {
+    height: 8px;
+}
+.portfolio-slider::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+}
+.portfolio-slider::-webkit-scrollbar-track {
+    background-color: var(--dark-bg);
+}
+
+/* Typing cursor */
+#typing-text + .animate-pulse {
+    background-color: var(--accent-color);
+    width: 2px;
+    height: 1.2em;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+}
