@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagara Joki Website - Portofolio & Testimoni</title>
+    <!-- Load Tailwind CSS: WARNING: For production, use PostCSS/CLI installation as recommended by the console log. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Custom CSS (Includes Poppins & Inter Fonts) -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Load Lucide Icons (Updated link structure to be more specific) -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script>
+        // Testimonial Data Array (used to generate the boxes)
+        const testimonials = [
+            { name: "Rina S.", text: "Pelayanan cepat dan hasilnya melampaui ekspektasi. Website saya terlihat profesional!", stars: 5 },
+            { name: "Andi P.", text: "Desain yang sangat futuristik! Konsepnya benar-benar sesuai dengan brand kami. Sukses terus Sagara!", stars: 5 },
+            { name: "Bambang M.", text: "Harganya sangat terjangkau untuk kualitas sebaik ini. Respon WA-nya juga kilat.", stars: 4 },
+            { name: "Dewi K.", text: "Saya ambil paket Web Starter, hasilnya memuaskan. Tutorial pengelolaannya juga mudah dipahami.", stars: 5 },
+            { name: "Fajar A.", text: "Ambil jasa desain JDS untuk banner. Murah tapi desainnya tidak murahan. Recommended!", stars: 4 },
+            { name: "Gita L.", text: "Profesional dari awal hingga akhir. Website launching tepat waktu. Terima kasih Sagara.", stars: 5 },
+            { name: "Hadi J.", text: "Awalnya ragu, tapi ternyata prosesnya sangat transparan dan mudah. DP 50% aman.", stars: 4 },
+            { name: "Indra T.", "text": "Website Pro-nya sangat canggih, fitur multi-bahasanya bekerja sempurna. Investasi yang bagus.", stars: 5 },
+            { name: "Joko B.", text: "Pelayanan purna jualnya (maintenance tahunan) sangat membantu dan murah.", stars: 4 },
+            { name: "Karina Z.", text: "Timnya ramah dan sabar melayani revisi. Kami puas dengan landing page yang dibuat.", stars: 5 },
+        ];
+
+        function generateStars(count) {
+            let html = '';
+            for (let i = 0; i < 5; i++) {
+                const color = i < count ? 'text-yellow-400' : 'text-gray-600';
+                html += `<i data-lucide="star" class="w-4 h-4 fill-current ${color}"></i>`;
+            }
+            return html;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('testimonial-container');
+            if (container) {
+                container.innerHTML = testimonials.map(t => `
+                    <div class="design-card p-6 rounded-xl bg-[#1A2735] flex flex-col justify-between hover:shadow-lg hover:shadow-[#00ADB5]/30">
+                        <div>
+                            <p class="text-gray-300 italic mb-4">"${t.text}"</p>
+                        </div>
+                        <div class="mt-4">
+                            <div class="flex items-center mb-2">
+                                ${generateStars(t.stars)}
+                            </div>
+                            <p class="font-bold accent-text text-lg">${t.name}</p>
+                        </div>
+                    </div>
+                `).join('');
+                // Re-init lucide icons after injecting HTML
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            }
+        });
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header (Consistent Navbar) -->
+    <header class="sticky top-0 z-50 bg-[#131E2A]/90 backdrop-blur-sm shadow-xl shadow-gray-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
+                <div class="flex justify-start lg:w-0 lg:flex-1">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img class="h-8 w-auto sm:h-10 rounded-full border border-[#00ADB5] p-0.5" src="https://i.ibb.co.com/pj9QX2kq/Gemini-Generated-Image-dq72tydq72tydq72.png" alt="Sagara Logo">
+                        <span class="text-xl font-extrabold tracking-widest text-[#00ADB5]">SAGARA</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-sm font-medium text-white hover:text-[#00ADB5] transition duration-300">Beranda</a>
+                    <a href="about.html" class="text-sm font-medium text-white hover:text-[#00ADB5] transition duration-300">Tentang</a>
+                    <a href="services.html" class="text-sm font-medium text-white hover:text-[#00ADB5] transition duration-300">Layanan</a>
+                    <a href="portfolio.html" class="text-sm font-medium text-white hover:text-[#00ADB5] transition duration-300">Portofolio & Testimoni</a>
+                </nav>
+                <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                    <a href="https://wa.me/6285211080404" target="_blank" class="design-btn ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-full shadow-lg text-base font-medium text-black bg-[#00ADB5] hover:bg-[#00969e] transition duration-300">
+                        <i data-lucide="message-square-text" class="w-5 h-5 mr-2"></i> Konsultasi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-20">
+
+        <!-- Portfolio Section -->
+        <section id="portfolio-content" class="px-4 sm:px-6 lg:px-8 mb-20">
+            <div class="text-center mb-10">
+                <p class="text-sm uppercase tracking-widest mb-2 text-[#00ADB5] font-medium">// KARYA KAMI</p>
+                <h2 class="text-4xl sm:text-5xl font-bold text-white">Proyek Pilihan & Kreatif</h2>
+                <p class="text-gray-400 mt-2">Geser ke kanan untuk melihat lebih banyak contoh pekerjaan kami.</p>
+            </div>
+
+            <!-- Portfolio Slider (Horizontal Scroll) -->
+            <div class="portfolio-slider flex overflow-x-scroll snap-x snap-mandatory space-x-6 pb-4">
+                <!-- Portfolio Item 1 -->
+                <div class="snap-center flex-shrink-0 w-[80vw] sm:w-[400px] rounded-xl overflow-hidden shadow-xl design-card bg-[#1A2735]">
+                    <img class="w-full h-48 object-cover object-top" src="https://i.ibb.co.com/WNdzVbDv/270.jpg" alt="Web E-Commerce Kustom">
+                    <div class="p-4">
+                        <p class="accent-text text-lg font-semibold">Web E-Commerce Kustom</p>
+                        <p class="text-gray-500 text-sm">Kategori: Toko Online</p>
+                    </div>
+                </div>
+                <!-- Portfolio Item 2 -->
+                <div class="snap-center flex-shrink-0 w-[80vw] sm:w-[400px] rounded-xl overflow-hidden shadow-xl design-card bg-[#1A2735]">
+                    <img class="w-full h-48 object-cover object-center" src="https://i.ibb.co.com/Mxx4hV19/Rainforest-Guardians-540x329.png" alt="Rainforest Guardians">
+                    <div class="p-4">
+                        <p class="accent-text text-lg font-semibold">Rainforest Guardians</p>
+                        <p class="text-gray-500 text-sm">Kategori: NGO/Lembaga</p>
+                    </div>
+                </div>
+                <!-- Portfolio Item 3 -->
+                <div class="snap-center flex-shrink-0 w-[80vw] sm:w-[400px] rounded-xl overflow-hidden shadow-xl design-card bg-[#1A2735]">
+                    <img class="w-full h-48 object-cover object-top" src="https://i.ibb.co.com/fh23g00/tampilan-peserta-lolos-snbt-2024-169.jpg" alt="Sistem Informasi Akademik">
+                    <div class="p-4">
+                        <p class="accent-text text-lg font-semibold">Sistem Informasi Akademik</p>
+                        <p class="text-gray-500 text-sm">Kategori: Edukasi</p>
+                    </div>
+                </div>
+                <!-- Portfolio Item 4 -->
+                <div class="snap-center flex-shrink-0 w-[80vw] sm:w-[400px] rounded-xl overflow-hidden shadow-xl design-card bg-[#1A2735]">
+                    <img class="w-full h-48 object-cover object-center" src="https://i.ibb.co.com/23SSjHmr/9.png" alt="Landing Page Bisnis">
+                    <div class="p-4">
+                        <p class="accent-text text-lg font-semibold">Landing Page Bisnis</p>
+                        <p class="text-gray-500 text-sm">Kategori: Bisnis/Corporate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials-content" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-[#00ADB5]/20">
+            <div class="text-center mb-10">
+                <p class="text-sm uppercase tracking-widest mb-2 text-[#00ADB5] font-medium">// VALIDASI KLIEN</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Apa Kata Klien Kami?</h2>
+            </div>
+            
+            <div id="testimonial-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Testimonials will be injected here by JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Consistent Footer) -->
+    <footer id="contact" class="bg-[#1A2735] py-16 mt-20 border-t border-[#00ADB5]/30">
+        <!-- Content from index.html footer -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <p class="text-sm uppercase tracking-widest mb-2 text-[#00ADB5] font-medium">// KONTAK</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Hubungi Kami</h2>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
+                <a href="https://wa.me/6285211080404" target="_blank" class="flex flex-col items-center design-card p-6 rounded-xl w-full md:w-1/4 transition duration-300 hover:shadow-lg hover:shadow-[#00ADB5]/30">
+                    <img src="https://i.ibb.co.com/SwL4XzGq/q67pnz2eye22fpx.jpg" class="w-12 h-12 object-contain rounded-full border border-[#00ADB5] p-0.5 mb-3" alt="WhatsApp Logo">
+                    <p class="text-white text-lg font-semibold">WhatsApp</p>
+                    <p class="text-[#00ADB5] font-medium">0852-1108-0404</p>
+                </a>
+                <a href="https://www.instagram.com/ryzky_arya/" target="_blank" class="flex flex-col items-center design-card p-6 rounded-xl w-full md:w-1/4 transition duration-300 hover:shadow-lg hover:shadow-[#00ADB5]/30">
+                    <img src="https://i.ibb.co.com/RGQvVRFT/Instagram-logo-2022-svg.webp" class="w-12 h-12 object-contain rounded-full border border-[#00ADB5] p-0.5 mb-3" alt="Instagram Logo">
+                    <p class="text-white text-lg font-semibold">Instagram</p>
+                    <p class="text-[#00ADB5] font-medium">@ryzky_arya</p>
+                </a>
+                <a href="https://www.tiktok.com/@sagara_petrov" target="_blank" class="flex flex-col items-center design-card p-6 rounded-xl w-full md:w-1/4 transition duration-300 hover:shadow-lg hover:shadow-[#00ADB5]/30">
+                    <img src="https://i.ibb.co.com/HfLs1g7c/Tik-Tok-Logo.webp" class="w-12 h-12 object-contain rounded-full border border-[#00ADB5] p-0.5 mb-3" alt="TikTok Logo">
+                    <p class="text-white text-lg font-semibold">TikTok</p>
+                    <p class="text-[#00ADB5] font-medium">@sagara_petrov</p>
+                </a>
+            </div>
+
+            <div class="mt-16 text-center border-t border-gray-700 pt-8">
+                <p class="text-gray-500 text-sm">© 2025 Sagara Joki Website. All rights reserved. | Dirancang untuk **Kualitas**.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
